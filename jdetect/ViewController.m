@@ -58,19 +58,20 @@ static NSMutableString *outputText = nil;
 {
     if (!isInitUIView) {
         self.JBResult = [[UILabel alloc] init];
-        [self.JBResult setBackgroundColor:[UIColor colorWithWhite:0.0f alpha:0.0f]];
+        [self.JBResult setBackgroundColor:[UIColor whiteColor]];
         [self.JBResult setTextColor:[UIColor blackColor]];
         [self.JBResult setTextAlignment:NSTextAlignmentCenter];
         [self.JBResult setFont:[UIFont systemFontOfSize:32.0f]];
         [self.view addSubview:self.JBResult];
 
         self.outputView = [[UITextView alloc] init];
-        [self.outputView setBackgroundColor:[UIColor colorWithWhite:0.0f alpha:0.0f]];
+        [self.outputView setBackgroundColor:[UIColor whiteColor]];
         [self.outputView setTextColor:[UIColor blackColor]];
         [self.outputView setFont:[UIFont systemFontOfSize:12.0f]];
         [self.outputView setEditable:FALSE];
         [self.view addSubview:self.outputView];
 
+        [self.view setBackgroundColor:[UIColor whiteColor]];
         isInitUIView = true;
     }
     float width = CGRectGetWidth(self.view.frame);
