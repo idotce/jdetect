@@ -11,6 +11,7 @@
 		8300BA2226A8009E001AFFD5 /* XFJailbreakURLCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 8300BA1D26A8009E001AFFD5 /* XFJailbreakURLCheck.m */; };
 		8300BA2326A8009E001AFFD5 /* XFJailbreakInjectCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 8300BA1E26A8009E001AFFD5 /* XFJailbreakInjectCheck.m */; };
 		8300BA2526A8009E001AFFD5 /* XFJailbreakFileCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 8300BA2026A8009E001AFFD5 /* XFJailbreakFileCheck.m */; };
+		8300BA2D26A90496001AFFD5 /* XFJailbreakOtherCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 8300BA2C26A90495001AFFD5 /* XFJailbreakOtherCheck.m */; };
 		8353D7EB2685C2EF00EF09E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8353D7EA2685C2EF00EF09E8 /* AppDelegate.m */; };
 		8353D7EE2685C2EF00EF09E8 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8353D7ED2685C2EF00EF09E8 /* SceneDelegate.m */; };
 		8353D7F12685C2EF00EF09E8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8353D7F02685C2EF00EF09E8 /* ViewController.m */; };
@@ -29,6 +30,8 @@
 		8300BA2726A800A9001AFFD5 /* XFJailbreakInjectCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFJailbreakInjectCheck.h; path = XFJailbreakDetection/header/XFJailbreakInjectCheck.h; sourceTree = SOURCE_ROOT; };
 		8300BA2826A800A9001AFFD5 /* XFJailbreakPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFJailbreakPattern.h; path = XFJailbreakDetection/header/XFJailbreakPattern.h; sourceTree = SOURCE_ROOT; };
 		8300BA2926A800A9001AFFD5 /* XFJailbreakFileCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFJailbreakFileCheck.h; path = XFJailbreakDetection/header/XFJailbreakFileCheck.h; sourceTree = SOURCE_ROOT; };
+		8300BA2B26A90489001AFFD5 /* XFJailbreakOtherCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFJailbreakOtherCheck.h; path = XFJailbreakDetection/header/XFJailbreakOtherCheck.h; sourceTree = SOURCE_ROOT; };
+		8300BA2C26A90495001AFFD5 /* XFJailbreakOtherCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XFJailbreakOtherCheck.m; path = XFJailbreakDetection/XFJailbreakOtherCheck.m; sourceTree = SOURCE_ROOT; };
 		8353D7E62685C2EF00EF09E8 /* jdetect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jdetect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8353D7E92685C2EF00EF09E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8353D7EA2685C2EF00EF09E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -57,6 +60,8 @@
 		8300BA1B26A8008A001AFFD5 /* XFJailbreakDetection */ = {
 			isa = PBXGroup;
 			children = (
+				8300BA2B26A90489001AFFD5 /* XFJailbreakOtherCheck.h */,
+				8300BA2C26A90495001AFFD5 /* XFJailbreakOtherCheck.m */,
 				8300BA2826A800A9001AFFD5 /* XFJailbreakPattern.h */,
 				8300BA1C26A8009E001AFFD5 /* XFJailbreakPattern.m */,
 				8300BA2926A800A9001AFFD5 /* XFJailbreakFileCheck.h */,
@@ -181,6 +186,7 @@
 				8353D7EE2685C2EF00EF09E8 /* SceneDelegate.m in Sources */,
 				8300BA2226A8009E001AFFD5 /* XFJailbreakURLCheck.m in Sources */,
 				8300BA2126A8009E001AFFD5 /* XFJailbreakPattern.m in Sources */,
+				8300BA2D26A90496001AFFD5 /* XFJailbreakOtherCheck.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

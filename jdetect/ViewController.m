@@ -7,6 +7,7 @@
 
 #include <sys/time.h>
 #import "ViewController.h"
+#import "XFJailbreakOtherCheck.h"
 #import "XFJailbreakFileCheck.h"
 #import "XFJailbreakInjectCheck.h"
 #import "XFJailbreakURLCheck.h"
@@ -81,14 +82,18 @@ static NSMutableString *outputText = nil;
 
     BOOL isJB = NO;
 #if !(TARGET_IPHONE_SIMULATOR)
-    if([XFJailbreakFileCheck isJailbreakFileExist])
+    if ([XFJailbreakOtherCheck isJailbreakOtherAvailable]) {
         isJB = YES;
-
-    if([XFJailbreakInjectCheck isJailbreakInjectExist])
+    }
+    if ([XFJailbreakFileCheck isJailbreakFileExist]) {
         isJB = YES;
-
-    if([XFJailbreakURLCheck isJailbreakURLAvailable])
+    }
+    if ([XFJailbreakInjectCheck isJailbreakInjectExist]) {
         isJB = YES;
+    }
+    if ([XFJailbreakURLCheck isJailbreakURLAvailable]) {
+        isJB = YES;
+    }
 #endif
     if (isJB) {
         self.JBResult.text = @"Jailbroken";
