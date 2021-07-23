@@ -82,15 +82,23 @@ static NSMutableString *outputText = nil;
 
     BOOL isJB = NO;
 #if !(TARGET_IPHONE_SIMULATOR)
+    NSLog(@"########");
+    NSLog(@"######## isJailbreakOtherAvailable!");
     if ([XFJailbreakOtherCheck isJailbreakOtherAvailable]) {
         isJB = YES;
     }
+    NSLog(@"########");
+    NSLog(@"######## isJailbreakFileExist!");
     if ([XFJailbreakFileCheck isJailbreakFileExist]) {
         isJB = YES;
     }
+    NSLog(@"########");
+    NSLog(@"######## isJailbreakInjectExist!");
     if ([XFJailbreakInjectCheck isJailbreakInjectExist]) {
         isJB = YES;
     }
+    NSLog(@"########");
+    NSLog(@"######## isJailbreakURLAvailable!");
     if ([XFJailbreakURLCheck isJailbreakURLAvailable]) {
         isJB = YES;
     }

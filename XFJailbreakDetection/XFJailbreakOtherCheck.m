@@ -23,6 +23,11 @@
         NSLog(@"stat /Applications/AppStore.app %d", iret);
         check = YES;
     }
+    
+    if (NULL != getenv("DYLD_INSERT_LIBRARIES")) {
+        NSLog(@"getenv DYLD_INSERT_LIBRARIES exist!");
+        check = YES;
+    }
 
     return check;
 }
