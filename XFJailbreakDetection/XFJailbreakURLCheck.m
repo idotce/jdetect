@@ -10,21 +10,22 @@
 #import <UIKit/UIKit.h>
 #import "XFJailbreakURLCheck.h"
 #import "XFJailbreakPattern.h"
+#import "Util.h"
 
 @implementation XFJailbreakURLCheck
 
 +(BOOL)isJailbreakURLAvailable {
-	BOOL check = NO;
+    BOOL check = NO;
 
-	NSArray *jbPatternURL = [[[XFJailbreakPattern alloc] init] jailbreakURLs];
+    NSArray *jbPatternURL = [[[XFJailbreakPattern alloc] init] jailbreakURLs];
 
-	for (NSString *jbURL in jbPatternURL) {
-		if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:jbURL]]) {
-			NSLog(@"URLOpenAvailable = %@", jbURL);
-			check = YES;
-		}
-	}
-	return check;
+    for (NSString *jbURL in jbPatternURL) {
+        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:jbURL]]) {
+            [Util appendTextToOutput:[NSString stringWithFormat:@"URLOpenAvailable = %@", jbURL]];
+            check = YES;
+        }
+    }
+    return check;
 }
 
 @end

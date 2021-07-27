@@ -9,7 +9,7 @@
 
 @interface ViewController : UIViewController
 
-- (void)appendTextToOutput:(NSString *)text;
+//
 
 @end
 

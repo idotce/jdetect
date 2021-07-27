@@ -19,6 +19,7 @@
 		8353D7F62685C2F300EF09E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8353D7F52685C2F300EF09E8 /* Assets.xcassets */; };
 		8353D7F92685C2F300EF09E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8353D7F72685C2F300EF09E8 /* LaunchScreen.storyboard */; };
 		8353D7FC2685C2F300EF09E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8353D7FB2685C2F300EF09E8 /* main.m */; };
+		83F7AAFF26AFE97300F217F2 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F7AAFD26AFE97300F217F2 /* Util.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		8353D7F82685C2F300EF09E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8353D7FA2685C2F300EF09E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8353D7FB2685C2F300EF09E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83F7AAFD26AFE97300F217F2 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		83F7AAFE26AFE97300F217F2 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,8 @@
 				8353D7ED2685C2EF00EF09E8 /* SceneDelegate.m */,
 				8353D7EF2685C2EF00EF09E8 /* ViewController.h */,
 				8353D7F02685C2EF00EF09E8 /* ViewController.m */,
+				83F7AAFE26AFE97300F217F2 /* Util.h */,
+				83F7AAFD26AFE97300F217F2 /* Util.m */,
 				8353D7F22685C2EF00EF09E8 /* Main.storyboard */,
 				8353D7F52685C2F300EF09E8 /* Assets.xcassets */,
 				8353D7F72685C2F300EF09E8 /* LaunchScreen.storyboard */,
@@ -183,6 +188,7 @@
 				8300BA2326A8009E001AFFD5 /* XFJailbreakInjectCheck.m in Sources */,
 				8353D7EB2685C2EF00EF09E8 /* AppDelegate.m in Sources */,
 				8353D7FC2685C2F300EF09E8 /* main.m in Sources */,
+				83F7AAFF26AFE97300F217F2 /* Util.m in Sources */,
 				8353D7EE2685C2EF00EF09E8 /* SceneDelegate.m in Sources */,
 				8300BA2226A8009E001AFFD5 /* XFJailbreakURLCheck.m in Sources */,
 				8300BA2126A8009E001AFFD5 /* XFJailbreakPattern.m in Sources */,

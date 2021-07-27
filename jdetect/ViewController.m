@@ -11,6 +11,7 @@
 #import "XFJailbreakFileCheck.h"
 #import "XFJailbreakInjectCheck.h"
 #import "XFJailbreakURLCheck.h"
+#import "Util.h"
 
 @interface ViewController () {
     Boolean isInitUIView;
@@ -24,14 +25,16 @@
 
 @implementation ViewController
 
-static NSMutableString *outputText = nil;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     //
     isInitUIView = false;
-    [self redirectSTD:STDOUT_FILENO];
-    [self redirectSTD:STDERR_FILENO];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleNotification:)
+                                                 name:ViewUpdateNotification
+                                               object:nil];
+    //[self redirectSTD:STDOUT_FILENO];
+    //[self redirectSTD:STDERR_FILENO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -54,6 +57,13 @@ static NSMutableString *outputText = nil;
 }
 
 # pragma mark - UIView
+
+- (void)handleNotification:(NSNotification *)notification
+{
+    if ([notification.name isEqualToString:ViewUpdateNotification]) {
+        [self updateOutputView];
+    }
+}
 
 - (void)initUIView
 {
@@ -82,23 +92,19 @@ static NSMutableString *outputText = nil;
 
     BOOL isJB = NO;
 #if !(TARGET_IPHONE_SIMULATOR)
-    NSLog(@"########");
-    NSLog(@"######## isJailbreakOtherAvailable!");
+    [Util appendTextToOutput:[NSString stringWithFormat:@"######## XFJailbreakOtherCheck!"]];
     if ([XFJailbreakOtherCheck isJailbreakOtherAvailable]) {
         isJB = YES;
     }
-    NSLog(@"########");
-    NSLog(@"######## isJailbreakFileExist!");
+    [Util appendTextToOutput:[NSString stringWithFormat:@"######## XFJailbreakFileCheck!"]];
     if ([XFJailbreakFileCheck isJailbreakFileExist]) {
         isJB = YES;
     }
-    NSLog(@"########");
-    NSLog(@"######## isJailbreakInjectExist!");
+    [Util appendTextToOutput:[NSString stringWithFormat:@"######## XFJailbreakInjectCheck!"]];
     if ([XFJailbreakInjectCheck isJailbreakInjectExist]) {
         isJB = YES;
     }
-    NSLog(@"########");
-    NSLog(@"######## isJailbreakURLAvailable!");
+    [Util appendTextToOutput:[NSString stringWithFormat:@"######## XFJailbreakURLCheck!"]];
     if ([XFJailbreakURLCheck isJailbreakURLAvailable]) {
         isJB = YES;
     }
@@ -111,13 +117,14 @@ static NSMutableString *outputText = nil;
     }
 }
 
+/*
 # pragma mark - redirect
 
 - (void)redirectNotificationHandle:(NSNotification *)nf{
     NSData *data = [[nf userInfo] objectForKey:NSFileHandleNotificationDataItem];
     NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 
-    [self appendTextToOutput:[NSString stringWithFormat:@"%@\n", str]];
+    [Util  appendTextToOutput:[NSString stringWithFormat:@"%@\n", str]];
 
     [[nf object] readInBackgroundAndNotify];
 }
@@ -131,9 +138,10 @@ static NSMutableString *outputText = nil;
                                            selector:@selector(redirectNotificationHandle:)
                                                name:NSFileHandleReadCompletionNotification
                                              object:pipeReadHandle] ;
+
     [pipeReadHandle readInBackgroundAndNotify];
 }
-
+*/
 # pragma mark - outputView
 
 - (void)updateOutputView {
@@ -168,7 +176,7 @@ static NSMutableString *outputText = nil;
             updateQueued = NO;
             gettimeofday(&last, NULL);
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.outputView.text = outputText;
+                self.outputView.text = [Util getOutputText];
                 [self.outputView scrollRangeToVisible:NSMakeRange(self.outputView.text.length, 0)];
             });
         } else {
@@ -179,27 +187,6 @@ static NSMutableString *outputText = nil;
             });
         }
     });
-}
-
-- (void)appendTextToOutput:(NSString *)text {
-    if (_outputView == nil) {
-        return;
-    }
-    static NSRegularExpression *remove = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        remove = [NSRegularExpression \
-                  regularExpressionWithPattern:@"^\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}\\.\\d+[-\\d\\s]+\\S+\\[\\d+:\\d+\\]\\s+" \
-                  options:NSRegularExpressionAnchorsMatchLines error:nil];
-        outputText = [NSMutableString new];
-    });
-
-    text = [remove stringByReplacingMatchesInString:text options:0 range:NSMakeRange(0, text.length) withTemplate:@""];
-
-    @synchronized (outputText) {
-        [outputText appendString:text];
-    }
-    [self updateOutputView];
 }
 
 @end
